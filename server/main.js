@@ -8,6 +8,15 @@ const PORT = process.env.PORT || 3000;
 
 const app = express();
 const server = http.createServer(app);
+const io = socketIO(server);
+
+io.on('connect', socket => {
+  console.log('Someone connected');
+
+  socket.on('disconnect', () => {
+    console.log('Client disconnected');
+  })
+})
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
