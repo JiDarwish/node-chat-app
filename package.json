@@ -1,0 +1,23 @@
+{
+  "name": "playground",
+  "version": "1.0.0",
+  "description": "playground for socket.io",
+  "main": "index.js",
+  "scripts": {
+    "start": "node -r esm server/main.js",
+    "start:server": "nodemon -r esm server/main.js"
+  },
+  "engines": {
+    "node": "v8.9.1",
+    "npm": "6.0.0"
+  },
+  "module": "main.js",
+  "author": "Ji Darwish",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "esm": "^3.0.36",
+    "express": "^4.16.3",
+    "socket.io": "^2.1.1"
+  }
+}
