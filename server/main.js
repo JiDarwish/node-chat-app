@@ -1,9 +1,9 @@
 import express from 'express';
-import socketIO from 'socket.io';
 import http from 'http';
 import path from 'path';
 import bodyParser from 'body-parser';
-import socketHandlers from './socketHandlers';
+import socketConfig from './socketHandlers';
+import socketIO from 'socket.io';
 
 const PORT = process.env.PORT || 3000;
 
@@ -11,7 +11,8 @@ const app = express();
 const server = http.createServer(app);
 const io = socketIO(server);
 
-io.on('connect', socketHandlers);
+socketConfig(io);
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
